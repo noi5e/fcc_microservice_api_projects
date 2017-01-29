@@ -111,27 +111,6 @@ app.get('/imagesearch/:searchQuery', function(request, response) {
 //                         URL SHORTENER MICROSERVICE
 // --**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**
 
-app.get('/debug', function(request, response) {
-  
-  mongo.connect(mongoURI, function(error, database) {
-    if (error) throw error;
-
-    var counters = database.collection('counters');
-
-    // counters.insertOne({ name: 'url_count', seq: 1 }).then(function(boolean) {
-    //   response.send(boolean);
-    // });
-
-    counters.find({}).each(function(error, document) {
-      if (error) throw error;
-
-      console.log(document);  
-    });
-
-  });
-
-});
-
 app.get(/url-shortener\/([a-zA-Z\d]+)$/, function(request, response) {
 
   mongo.connect(mongoURI, function(error, database) {
