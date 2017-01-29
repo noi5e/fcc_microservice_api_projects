@@ -122,7 +122,7 @@ app.get('/debug', function(request, response) {
     //   response.send(boolean);
     // });
 
-    counters.find({}).each(function(error, document)) {
+    counters.find({}).each(function(error, document) {
       if (error) throw error;
 
       console.log(document);  
