@@ -31,7 +31,7 @@ app.use('/filemetadata', express.static(__dirname + '/filemetadata_static'));
 
 app.get('/latest/imagesearch', function(request, response) {
 
-  mongo.connect('mongodb://localhost:27017/microservices', function(error, database) {
+  mongo.connect('mongodb://heroku_chvncx0d:65il639dkpf8vrjalbn1enjt98@ds135669.mlab.com:35669/heroku_chvncx0d', function(error, database) {
     if (error) throw error;
 
     var queries = database.collection('queries');
@@ -71,7 +71,7 @@ app.get('/imagesearch/:searchQuery', function(request, response) {
   https.get('https://www.googleapis.com/customsearch/v1?' + queryString, function(httpResponse) {
     console.log('Got response: ' + httpResponse.statusCode);
 
-    mongo.connect('mongodb://localhost:27017/microservices', function(error, database) {
+    mongo.connect('mongodb://heroku_chvncx0d:65il639dkpf8vrjalbn1enjt98@ds135669.mlab.com:35669/heroku_chvncx0d', function(error, database) {
       if (error) throw error;
 
       var queries = database.collection('queries');
