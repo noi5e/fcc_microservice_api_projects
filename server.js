@@ -113,10 +113,14 @@ app.get('/imagesearch/:searchQuery', function(request, response) {
 
 app.get('/debug', function(request, response) {
   
-  var counters = database.collection('counters');
+  mongo.connect(mongoURI, function(error, database) {
+    if (error) throw error;
 
-  counters.insertOne({ name: url_count, seq: 1 }).then(function(boolean) {
-    console.log(boolean);
+    var counters = database.collection('counters');
+
+    counters.insertOne({ name: url_count, seq: 1 }).then(function(boolean) {
+      response.send(boolean);
+    });
   });
 
 });
