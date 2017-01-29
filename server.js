@@ -243,6 +243,6 @@ app.get('/timestamp/:time', function(request, response) {
 
 app.use('/timestamp', express.static(__dirname + '/timestamp_static'));
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log('Example app listening on port 8080!');
 });
