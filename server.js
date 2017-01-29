@@ -137,8 +137,6 @@ app.get(/url-shortener\/((https?:\/\/)?(\w+\.\w+)+(\.\w+)?)$/, function(request,
   
   mongo.connect(mongoURI, function(error, database) {
     if (error) throw error;
-    
-    console.log(request.params[0]);
 
     var urls = database.collection('urls');
     var counters = database.collection('counters');
@@ -171,6 +169,8 @@ app.get(/url-shortener\/((https?:\/\/)?(\w+\.\w+)+(\.\w+)?)$/, function(request,
             callback(null, matchingDocument.short_url);
           } else {
             counters.findOne({ _id: 'url_count' }).then(function(document) {
+              console.log("couldn't find matching URL in database")
+
               newShortCode = generateShortUrl(document.seq);
               counters.updateOne({ _id: 'url_count' }, { $inc: { seq: 1 } });
               callback(null, 'https://warm-lake-11675.herokuapp.com/url-shortener/' + newShortCode);
