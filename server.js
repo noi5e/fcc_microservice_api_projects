@@ -171,14 +171,14 @@ app.get(/url-shortener\/((https?:\/\/)?(\w+\.\w+)+(\.\w+)?)$/, function(request,
             counters.findOne({ _id: 'url_count' }).then(function(document) {
               newShortCode = generateShortUrl(document.seq);
               counters.updateOne({ _id: 'url_count' }, { $inc: { seq: 1 } });
-              callback(null, 'https://fcc-api-projects-noi5e.c9users.io/url-shortener/' + newShortCode);
+              callback(null, 'https://warm-lake-11675.herokuapp.com/url-shortener/' + newShortCode);
             });
           }
         }
       },
       function(error, results) {
         if (newShortCode) {
-          urls.insert({ original_url: request.params[0], short_url: 'https://fcc-api-projects-noi5e.c9users.io/url-shortener/' + newShortCode, short_code: newShortCode });
+          urls.insert({ original_url: request.params[0], short_url: 'https://warm-lake-11675.herokuapp.com/url-shortener/' + newShortCode, short_code: newShortCode });
         }
 
         response.send(results);
