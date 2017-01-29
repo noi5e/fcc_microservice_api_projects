@@ -128,6 +128,8 @@ app.get('/debug', function(request, response) {
       console.log(document);  
     });
 
+  });
+
 });
 
 app.get(/url-shortener\/([a-zA-Z\d]+)$/, function(request, response) {
