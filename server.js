@@ -49,10 +49,10 @@ app.get('/latest/imagesearch', function(request, response) {
 
 app.get('/imagesearch/:searchQuery', function(request, response) {
 
-  var apiKey = process.argv[2];
+  var apiKey = 'AIzaSyDizL1VL2DR79JEnc5dT6lyt6itHMuBwgk';
 
   var queryObject = {
-    key: process.argv[2],
+    key: apiKey,
     q: request.params.searchQuery,
     cx: '008842857176783284677:jrqevlh9gzs',
     searchType: 'image'
