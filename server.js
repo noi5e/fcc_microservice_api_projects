@@ -118,10 +118,15 @@ app.get('/debug', function(request, response) {
 
     var counters = database.collection('counters');
 
-    counters.insertOne({ name: 'url_count', seq: 1 }).then(function(boolean) {
-      response.send(boolean);
+    // counters.insertOne({ name: 'url_count', seq: 1 }).then(function(boolean) {
+    //   response.send(boolean);
+    // });
+
+    counters.find({}).each(function(error, document)) {
+      if (error) throw error;
+
+      console.log(document);  
     });
-  });
 
 });
 
