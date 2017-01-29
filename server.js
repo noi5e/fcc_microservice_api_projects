@@ -49,7 +49,7 @@ app.get('/latest/imagesearch', function(request, response) {
 
 app.get('/imagesearch/:searchQuery', function(request, response) {
 
-  var apiKey = 'AIzaSyDizL1VL2DR79JEnc5dT6lyt6itHMuBwgk';
+  var apiKey = ENV['GOOGLE_API_KEY'];
 
   var queryObject = {
     key: apiKey,
