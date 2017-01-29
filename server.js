@@ -137,6 +137,8 @@ app.get(/url-shortener\/((https?:\/\/)?(\w+\.\w+)+(\.\w+)?)$/, function(request,
   
   mongo.connect(mongoURI, function(error, database) {
     if (error) throw error;
+    
+    console.log(request.params[0]);
 
     var urls = database.collection('urls');
     var counters = database.collection('counters');
