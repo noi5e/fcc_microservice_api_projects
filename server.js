@@ -3,7 +3,7 @@ var https = require('https');
 var querystring = require('querystring');
 
 var mongo = require('mongodb').MongoClient;
-var mongoURI = process.env.MONGO_URI;
+var mongoURI = process.env['MONGO_URI'];
 
 console.log(process.env);
 
