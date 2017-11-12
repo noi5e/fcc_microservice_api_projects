@@ -5,6 +5,8 @@ var querystring = require('querystring');
 var mongo = require('mongodb').MongoClient;
 var mongoURI = process.env.MONGO_URI;
 
+console.log(mongoURI);
+
 var chrono = require('chrono-node');
 var strftime = require('strftime');
 var async = require('async');
