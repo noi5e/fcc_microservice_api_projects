@@ -3,7 +3,7 @@ var https = require('https');
 var querystring = require('querystring');
 
 var mongo = require('mongodb').MongoClient;
-var mongoURI = process.env['MONGO_URI'];
+var mongoURI = process.env.MONGO_URI;
 
 var chrono = require('chrono-node');
 var strftime = require('strftime');
@@ -51,7 +51,7 @@ app.get('/latest/imagesearch', function(request, response) {
 
 app.get('/imagesearch/:searchQuery', function(request, response) {
 
-  var apiKey = process.env['GOOGLE_API_KEY'];
+  var apiKey = process.env.GOOGLE_API_KEY;
 
   var queryObject = {
     key: apiKey,
